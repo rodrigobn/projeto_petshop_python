@@ -133,7 +133,7 @@ class Cliente:
     def mostraListaDePets(self):
         print(10*"-" + "Lista de Pets" + 10*"-")
         for pet in self.getPets():
-            print(pet.toString())
+            pet.toString()
 
     def mostraListaDeProdutos(self):
         print(10*"-" + "Lista de Produtos" + 10*"-")
