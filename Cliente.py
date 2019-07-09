@@ -1,6 +1,6 @@
 from Pet import Pet
 
-class Cliente:
+class Cliente():
     """
         Cria um cliente.
         Parametros :
@@ -78,26 +78,56 @@ class Cliente:
         self.__cpf = cpf
 
     def adicionaPets(self, pet):
+        """
+        Adiciona um pet na lista do cliente
+        Parametro:
+        - Pet
+        """
         if pet.getId() not in self.getPets():
             self.getPets().append(pet)
 
     def adicionaProdutos(self, produto):
+        """
+        Adiciona um produto na lista do cliente
+        Parametro:
+        - Produto
+        """
         if produto not in self.__produtos:
             self.__produtos.append(produto)
     
     def adicionaServicos(self, servico):
+        """
+        Adiciona um serviço na lista do cliente
+        Parametro:
+        - Servico
+        """
         if servico not in self.__servicos:
             self.__servicos.append(servico)
 
     def removePets(self, pet):
+        """
+        Remove um pet na lista do cliente
+        Parametro:
+        - Pet
+        """
         if pet in self.__pets:
             self.__pets.remove(pet)
 
     def removeProduto(self, produto):
+        """
+        Remove um produto na lista do cliente
+        Parametro:
+        - Produto
+        """
         if produto in self.__produtos:
             self.__produtos.remove(produto)
 
     def removeServico(self, servico):
+        """
+        Remove um serviço na lista do cliente
+        Parametro:
+        - Servico
+        """
         if servico in self.__servicos:
             self.__servicos.remove(servico)
     
@@ -119,28 +149,37 @@ class Cliente:
         """
         return self.__servicos
 
-    def toString(self):
-        print("""
-        id: {}
-        Cliente: {}
-        Idade: {}
-        CPF: {}
-        Quantidade de Pets: {}
-        Quantidade de Produtos: {}
-        Quantidade de Servicos: {}
-        """.format(self.getid(), self.getNome(), self.getIdade(), self.getCpf(), len(self.getPets()), len(self.getProdutos()), len(self.getServicos())))
-
     def mostraListaDePets(self):
+        """
+        Mostra os pets do cliente
+        """
         print(10*"-" + "Lista de Pets" + 10*"-")
         for pet in self.getPets():
             pet.toString()
 
     def mostraListaDeProdutos(self):
+        """
+        Mostra os produtos do cliente
+        """
         print(10*"-" + "Lista de Produtos" + 10*"-")
         for produto in self.getProdutos():
             print (produto.toString())
 
     def mostraListaDeServicos(self):
+        """
+        Mostra os serviços do cliente
+        """
         print(10*"-" + "Lista de Servicos" + 10*"-")
         for servico in self.getServicos():
             print (servico.toString())
+    
+    def toString(self):
+        return """id: {}
+Cliente: {}
+Idade: {}
+CPF: {}
+Quantidade de Pets: {}
+Quantidade de Produtos: {}
+Quantidade de Servicos: {} """.format(self.getid(), self.getNome(), self.getIdade(), self.getCpf(), len(self.getPets()), len(self.getProdutos()), len(self.getServicos()))
+
+
